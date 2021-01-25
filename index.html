@@ -13,10 +13,47 @@
   
 <p>function under test</p>
   
-<input type="file" id="real-file" hidden="hidden" />
-<button type="button" id="custom-button">CHOOSE A FILE</button>
-<span id="custom-text">No file chosen, yet.</span>
+<!--botão de upload-->
   
+<div class="file-upload">
+  <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
+  <button class="file-upload__button" type="button">Choose File(s)</button>
+  <span class="file-upload__label"></span>
+</div>
+  
+  <script>
+    
+    Array.prototype.forEach.call(
+  document.querySelectorAll(".file-upload__button"),
+  function(button) {
+    const hiddenInput = button.parentElement.querySelector(
+      ".file-upload__input"
+    );
+    const label = button.parentElement.querySelector(".file-upload__label");
+    const defaultLabelText = "No file(s) selected";
+
+    // Set default text for label
+    label.textContent = defaultLabelText;
+    label.title = defaultLabelText;
+
+    button.addEventListener("click", function() {
+      hiddenInput.click();
+    });
+
+    hiddenInput.addEventListener("change", function() {
+      const filenameList = Array.prototype.map.call(hiddenInput.files, function(
+        file
+      ) {
+        return file.name;
+      });
+
+      label.textContent = filenameList.join(", ") || defaultLabelText;
+      label.title = label.textContent;
+    });
+  }
+);
+    
+  </script>
 <p>-----------------</p>
   
 <!--gifs começam aqui!-->
