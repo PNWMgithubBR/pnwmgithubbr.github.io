@@ -5,4 +5,4 @@ Site: https://pnwmgithubbr.github.io/
 
 Discord: https://discord.gg/Hz8UWFVWtm
 
-youtube: youtube.com/c/pnwmrisadas
+youtube: https://youtube.com/c/pnwmrisadas
