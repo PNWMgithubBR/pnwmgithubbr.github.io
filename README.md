@@ -8,9 +8,3 @@ Discord: https://discord.gg/Hz8UWFVWtm
 youtube: https://youtube.com/c/pnwmrisadas
 
 Album: https://ibb.co/album/gSfmHs
-
-<audio controls>
-  <source src="geoi.ogg" type="audio/ogg">
-  <source src="geoi.mp3" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
