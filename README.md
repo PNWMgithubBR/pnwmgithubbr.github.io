@@ -1,2 +1,2 @@
-# That GIF!
-it was good while it lasted
+# pou2img
+Uma pasta para vc colocar imagens no projeto de modificação do Pou 2
