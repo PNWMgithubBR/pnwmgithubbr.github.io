@@ -1,0 +1,24 @@
+body {
+  font-family: Monaco;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+  width: 85%;
+  margin: 0 auto;
+
+}
+
+#container img {
+  width: 100%;
+}
+
+#uploader {
+     position: absolute;
+  top : 10;
+  left : 20;
+  z-index : 1;
+}
+
