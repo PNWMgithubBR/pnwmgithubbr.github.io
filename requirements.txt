@@ -1,3 +1,0 @@
-Flask
-flask-socketio
-python-dotenv
