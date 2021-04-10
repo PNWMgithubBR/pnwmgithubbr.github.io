@@ -1,2 +1,2 @@
 # Pou2img
-it was good while it lasted
+Uma pasta para vc colocar imagens no projeto de modificação do Pou 2
