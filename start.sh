@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python server.py
+python main.py
