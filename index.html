@@ -32,8 +32,10 @@ body {
 </head>
 <body>
 
-<embed name="GoodEnough" src="trilha_rave.mp3" loop="true" hidden="true" autostart="true">
-        
+<embed name="musica" src="trilha_rave.mp3" loop="true" hidden="true" autostart="true">
+var audio = document.getElementById("musica");
+audio.volume = 0.5;
+
 <div id="myDIV">
   <img src="mina3.png" width="200" height="200">
 </div>
