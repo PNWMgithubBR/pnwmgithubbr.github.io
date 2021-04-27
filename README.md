@@ -1,2 +1,4 @@
-# World Cup 2022 Wallpapers
-Papeis de parede da copa do mundo!
+# Mina da Copa!
+Apostas em Pontos de minas para a copa do mundo!
+
+(Em Breve!)
