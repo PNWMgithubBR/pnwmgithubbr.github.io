@@ -1,2 +1,2 @@
-# Mina da Copa!
-Dicas para a Copa do mundo 2022!
+# PNWMStudios
+Sites revolucionários no github!
