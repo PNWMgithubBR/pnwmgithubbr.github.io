@@ -4,7 +4,7 @@ Sites revolucionários no github!
 Mina da copa:
 https://pnwmgithubbr.github.io/copa.html
 
-https://pnwmgithubbr.github.io/09102021.html
+https://pnwmgithubbr.github.io/10september2021.html
 
 vem ao github para mais experiência!
 <a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io">
