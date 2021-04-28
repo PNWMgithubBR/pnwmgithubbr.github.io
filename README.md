@@ -1,10 +1,11 @@
-# PNWMStudios
+# PNWMSites
 Sites revolucionários no github!
 
 Mina da copa:
 https://pnwmgithubbr.github.io/copa.html
 
 https://pnwmgithubbr.github.io/10september2021.html
+(http://10september2021.ga/)
 
 vem ao github para mais experiência!
 <a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io">
