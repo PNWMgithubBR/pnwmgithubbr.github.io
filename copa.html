@@ -30,7 +30,14 @@ body {
 </head>
 <body>
 
-<embed name="musica" src="mina_da_copa_2.mp3" volume="50" loop="true" hidden="true" autostart="true">
+<button id="ASong" onClick="playPause()">
+  <audio
+    src="mina_da_copa_2.mp3"
+    autoplay
+    loop
+  ></audio>
+  Song
+</button>
 
 <div id="myDIV">
   <img src="mina_da_copa/mina3.png" width="200" height="200">
@@ -40,8 +47,6 @@ body {
         
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         
-<input type="button" value="mina_da_copa_2.mp3" onclick="playMusic()" />
-        
 <img src="mina_da_copa/arabico.png">
         
 <a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io">
@@ -49,6 +54,21 @@ body {
 </a>
         
 <script async type="text/javascript" src="https://www.criarenquete.com.br/user.js"></script>
+        
+<script>
+  var aud = document.getElementById("ASong").children[0];
+  var isPlaying = false;
+  aud.pause();
+
+  function playPause() {
+    if (isPlaying) {
+      aud.pause();
+    } else {
+      aud.play();
+    }
+    isPlaying = !isPlaying;
+  }
+</script>
 
 </body>
 </html>
