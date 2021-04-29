@@ -12,6 +12,6 @@ Vem ao github para mais experiência!
 </a>
 
 Meu twitter!
-<a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io">
+<a href="https://twitter.com/pnwmdzn">
 <img src="imagens_especiais/twitter.gif" style="width:88px;height:31px;">
 </a>
