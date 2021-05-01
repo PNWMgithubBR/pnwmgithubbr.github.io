@@ -4,6 +4,9 @@ Sites revolucionários no github!
 Mina da copa:
 https://pnwmgithubbr.github.io/copa.html
 
+Ou baixe o app!
+https://kodular.app/GFV-DBA
+
 Mark the Date:
 http://10september2021.ga/
 
