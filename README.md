@@ -5,7 +5,7 @@ Mina da copa:
 https://pnwmgithubbr.github.io/copa.html
 
 Ou baixe o app!
-https://kodular.app/GFV-DBA
+https://drive.google.com/file/d/1Jw13YahshQGPAb9Sp5Ao9wVtyht5jr9O/view?usp=sharing
 
 Mark the Date:
 http://10september2021.ga/
