@@ -31,7 +31,25 @@ color: #FF0000;
 text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
 color: #FF0000;
 }
-        
+
+#winScreen {
+	background-image: url('mina_da_copa/neymar.gif');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: opacty .5s ease-in-out;
+}
+
+#winScreen[data-status="active"] {
+	opacity: 1;
+}
+
 </style>
 </head>
 <body>
@@ -86,6 +104,8 @@ color: #FF0000;
 <a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io" target="_blank">
 <img src="imagens_especiais/botaogit.png" style="width:88px;height:31px;">
 </a>
+
+<span id="winScreen" data-status="hidden"></span>
         
 <script async type="text/javascript" src="https://www.criarenquete.com.br/user.js"></script>
         
@@ -102,6 +122,32 @@ color: #FF0000;
     }
     isPlaying = !isPlaying;
   }
+
+  const codigoSecreto = 'neymar';
+let temporizador;
+let sequenciaDeCaracteres = [];
+
+// 1 - Sequencia de caracteres
+window.addEventListener('keydown', function(evento) {
+	clearTimeout(temporizador);
+	const teclaPressionada = evento.key;
+	
+	sequenciaDeCaracteres.push(teclaPressionada);
+	
+	const fraseComCaracteres = sequenciaDeCaracteres.join('');
+	
+	if(fraseComCaracteres.includes(codigoSecreto)) {
+		console.log('Você ACERTOU a sequencia!!!')
+		document.querySelector('#winScreen').dataset.status = 'active'
+		sequenciaDeCaracteres = [];
+	}
+	
+	console.log(sequenciaDeCaracteres);
+	temporizador = setTimeout(function() {
+		sequenciaDeCaracteres = [];		
+	}, 1000);
+
+})
 </script>
 
 </body>
