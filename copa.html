@@ -89,8 +89,6 @@ color: #FF0000;
 <a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io" target="_blank">
 <img src="imagens_especiais/botaogit.png" style="width:88px;height:31px;">
 </a>
-
-<span id="winScreen" data-status="hidden"></span>
         
 <script async type="text/javascript" src="https://www.criarenquete.com.br/user.js"></script>
 
@@ -119,31 +117,6 @@ color: #FF0000;
     isPlaying = !isPlaying;
   }
 
-  const codigoSecreto = 'neymar';
-let temporizador;
-let sequenciaDeCaracteres = [];
-
-// 1 - Sequencia de caracteres
-window.addEventListener('keydown', function(evento) {
-	clearTimeout(temporizador);
-	const teclaPressionada = evento.key;
-	
-	sequenciaDeCaracteres.push(teclaPressionada);
-	
-	const fraseComCaracteres = sequenciaDeCaracteres.join('');
-	
-	if(fraseComCaracteres.includes(codigoSecreto)) {
-		console.log('Você ACERTOU a sequencia!!!')
-		document.querySelector('#winScreen').dataset.status = 'active'
-		sequenciaDeCaracteres = [];
-	}
-	
-	console.log(sequenciaDeCaracteres);
-	temporizador = setTimeout(function() {
-		sequenciaDeCaracteres = [];		
-	}, 1000);
-
-})
 </script>
 
 </body>
