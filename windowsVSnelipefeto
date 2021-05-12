@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Whindersson VS Felipe Neto!</title>
+<style>
+
+        body{
+            max-width: 150px;
+            width: 100%;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+body {
+  background-image: url('vine.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+
+</style>
+</head>
+<body>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<b style="color:red;">What's 9+10? 21!</b>
+        
+<!-- Countdown start -->
+<div id="countdown_dashboard">
+  
+  <div class="dashp">
+    <span class="dashtitle">Days</span>
+    <p id="days"></p>
+  </div>
+  <div class="dashp">
+    <span class="dashtitle">Hours</span>
+    <p id="hours"></p>
+  </div>
+  <div class="dashp">
+    <span class="dashtitle">Minutes</span>
+    <p id="minutes"></p>
+  </div>
+  <div class="dashp">
+    <span class="dashtitle">Seconds</span>
+    <p id="seconds"></p>
+  </div>
+</div>
+<!-- Countdown end -->
+        
+<b style="color:red;">Entenda!:</b>
+
+<b style="color:red;">Em Breve!</b>
+
+   
+<br>
+        
+<a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io" target="_blank">
+<img src="imagens_especiais/botaogit.png" style="width:88px;height:31px;">
+</a>
+
+</body>
+</html>
