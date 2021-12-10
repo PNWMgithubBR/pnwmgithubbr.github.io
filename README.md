@@ -1,11 +1,5 @@
 # TADL Web and Dzn
-Sites revolucionários no github!
-
-Mina da copa:
-https://pnwmgithubbr.github.io/copa.html
-
-Ou baixe o app!
-https://drive.google.com/file/d/1Jw13YahshQGPAb9Sp5Ao9wVtyht5jr9O/view?usp=sharing
+Sites e coisas revolucionários no github!
 
 Vem ao github para mais experiência!
 <a href="https://github.com/PNWMgithubBR/pnwmgithubbr.github.io">
