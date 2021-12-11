@@ -25,79 +25,33 @@
 </center>
 
 <script>
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-}
-
-function drawBackgroundImage(canvas, ctx) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const img = document.getElementById('the-wok');  
-  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-}
-
-function getRandomImageSize(min, max, width, height) {
-  const ratio = width / height;  // Used for aspect ratio
-  width = getRandomInt(min, max);
-  height = width / ratio;  
-  return { width, height };
-}
-
-// Red Circle
-
-function drawSalt(src, canvas, ctx) {
-  // Create an image object. (Not part of the dom)
-  const image = new Image();
-  image.src = src;
   
-  // After the image has loaded, draw it to the canvas
-   image.onload = function() {
-    for (let i = 0; i < 1; i++) {
-      const randomX = getRandomInt(5, canvas.width/5);
-      const randomY = getRandomInt(canvas.height-900, canvas.height);
-      const dimensions = getRandomImageSize(500, 500, image.width, image.height);
-      ctx.drawImage(image, randomX, randomY, dimensions.width, dimensions.height);
-    }
-  }
-  return image;
+var images = [img1, img2];
+
+var img1 = new Image();
+img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Red_circle.svg/1200px-Red_circle.svg.png";
+
+var img2 = new Image();
+img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-hwQj8bI_CFzo9-VEAkbDq7x0rks-auwM-w&usqp=CAU";
+
+
+window.onload = function() {
+    animate();
 }
 
-onload = function() {
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  drawBackgroundImage(canvas, ctx);
-  const saltImage = drawSalt('https://upload.wikimedia.org/wikipedia/commons/0/05/Red_circle.svg', canvas, ctx);
-};
-
-// FlightReacts Scream
-
-function drawSalt2(src, canvas, ctx) {
-  // Create an image object. (Not part of the dom)
-  const image = new Image();
-  image.src = src;
-  
-  // After the image has loaded, draw it to the canvas
-   image.onload = function() {
-    for (let i = 0; i < 1; i++) {
-      const randomX = getRandomInt(5, canvas.width/5);
-      const randomY = getRandomInt(canvas.height-900, canvas.height);
-      const dimensions = getRandomImageSize(200, 200, image.width, image.height);
-      ctx.drawImage(image, randomX, randomY, dimensions.width, dimensions.height);
-    }
-  }
-  return image;
+var object = {
+    ...
+    // give random image
+    image: images[Math.floor(Math.random()*images.length)]
 }
 
-onload = function() {
-  const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
-  drawBackgroundImage(canvas, ctx);
-  const saltImage = drawSalt2('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-hwQj8bI_CFzo9-VEAkbDq7x0rks-auwM-w&usqp=CAU', canvas, ctx);
-};
- 
-</script>
+for (var i = 0; i < objects.length; i++) {
+    var object = objects[i];
+    object.y += spawnRateOfDescent;
+    ctx.drawImage(object.image, object.x, object.y, 30, 30);
+}
+
+<script>
 
 </body>
 </html>
