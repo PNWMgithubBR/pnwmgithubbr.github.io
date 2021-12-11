@@ -2,11 +2,22 @@
 <head>
 <title>GenBetaMemes</title>
 <style>
-div.image {
-   content:url(https://upload.wikimedia.org/wikipedia/commons/0/05/Red_circle.svg);
-     position: absolute;
-     padding: 7px 3px;
-}
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        
+            html {
+                font: 16px "Segoe UI", "Segoe WPC", Helvetica, Arial, "Arial Unicode MS", Sans-Serif;
+            }
+            
+            div {
+                float: left;
+            }
+            
+            #page_Wrapper {
+                
+            }
 </style>
 </head>
 <body>
@@ -15,6 +26,10 @@ div.image {
 
 <img style="width:40%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlz60qFLU0e0-uslSlrbpaSBpO3C-1gstCew&usqp=CAU">
 
+        <div id="page_Wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Red_circle.svg" id="image" style="position: fixed;" />
+        </div>
+   
 <br>
 
 <i>GenBeta</i>
@@ -23,23 +38,26 @@ div.image {
 
 <script>
 
-$(document).ready(function(){
-    var circle="<div class='image'></div>";
-    var numCircles=1;
-    for(var x=1;x<=numCircles;x++){
-        $(circle).appendTo("body");
-    }
-    // get window dimentions
-    var ww = $(window).width();
-    var wh = $(window).height();
-    $(".ticket").each(function(i){
-        var rotationNum=Math.round((Math.random()*360)+1);
-        var rotation="rotate("+rotationNum+"deg)";
-        var posx = Math.round(Math.random() * ww)-100;
-        var posy = Math.round(Math.random() * wh)-100;
-        $(this).css("top", posy + "px").css("left", posx + "px").css("transform",rotation).css("-ms-transform",rotation).css("-webkit-transform",rotation);
-    });
-});
+            window.onLoad = Prep();
+            
+            function Prep(){
+                window_Height = window.innerHeight;
+                window_Width = window.innerWidth;
+                
+                image_Element = document.getElementById("image");
+                image_Height = image_Element.clientHeight;
+                image_Width = image_Element.clientWidth;
+                
+                availSpace_V = window_Height - image_Height;
+                availSpace_H = window_Width - image_Width;
+            
+            function moveImage(){
+                var randNum_V = Math.round(Math.random() * availSpace_V);
+                var randNum_H = Math.round(Math.random() * availSpace_H);
+                
+                image_Element.style.top = randNum_V + "px";
+                image_Element.style.left = randNum_H + "px";
+            }
 
 </script>
 
