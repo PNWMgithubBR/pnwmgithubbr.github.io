@@ -50,6 +50,10 @@
                 
                 availSpace_V = window_Height - image_Height;
                 availSpace_H = window_Width - image_Width;
+                       
+                                       var changeInterval = 3000; // Time has to be in miliseconds. So, 3000 is 3 seconds
+                setInterval(moveImage, changeInterval);
+            }
             
             function moveImage(){
                 var randNum_V = Math.round(Math.random() * availSpace_V);
