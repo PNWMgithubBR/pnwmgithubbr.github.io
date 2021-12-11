@@ -5,6 +5,8 @@
 #the-wok {
   display: none;
 }
+body{ background-color: ivory; padding:10px; }
+#canvas{border:1px solid red;}
   </style>
 </head>
 <body>
@@ -17,6 +19,8 @@
   </canvas>
   <img id="the-wok" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEOYZl13-e3E5knBhR67s-IE0HGqWfOQReUw&usqp=CAU">
 </div>
+
+<canvas id="canvas" width=300 height=300></canvas>
 
 <br>
 
@@ -37,6 +41,51 @@ function drawImage() {
 
 onload = function() {
   drawImage();
+}
+
+var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+var cw=canvas.width;
+var ch=canvas.height;
+
+var imageURLs=[];  
+imageURLs.push("https://dl.dropboxusercontent.com/u/139992952/stackoverflow/house32x32transparent.png");
+imageURLs.push("https://dl.dropboxusercontent.com/u/139992952/stackoverflow/house32x32transparent.png");
+imageURLs.push("https://dl.dropboxusercontent.com/u/139992952/stackoverflow/house32x32transparent.png");
+imageURLs.push("https://dl.dropboxusercontent.com/u/139992952/stackoverflow/house32x32transparent.png");
+
+// the loaded images will be placed in imgs[]
+var imgs=[];
+
+var imagesOK=0;
+loadAllImages(start);
+
+function loadAllImages(callback){
+  for (var i=0; i<imageURLs.length; i++) {
+    var img = new Image();
+    imgs.push(img);
+    img.onload = function(){ 
+      imagesOK++; 
+      if (imagesOK>=imageURLs.length ) {
+        callback();
+      }
+    };
+    img.onerror=function(){alert("image load failed");} 
+    img.crossOrigin="anonymous";
+    img.src = imageURLs[i];
+  }      
+}
+
+function start(){
+
+  // the imgs[] array now holds fully loaded images
+  // the imgs[] are in the same order as imageURLs[]
+  for(var i=0;i<imgs.length;i++){
+    var randomX=Math.min(cw-imgs[i].width,Math.random()*cw);
+    var randomY=Math.min(ch-imgs[i].height,Math.random()*ch);
+    ctx.drawImage(imgs[i],randomX,randomY);
+  }
+
 }
 
 </script>
