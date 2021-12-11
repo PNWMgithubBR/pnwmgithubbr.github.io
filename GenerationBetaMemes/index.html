@@ -2,10 +2,10 @@
 <head>
 <title>GenBetaMemes</title>
 <style>
-    img {
-  max-width: 200px;
-  height: auto;
-  position: absolute;
+div.image {
+   content:url(https://upload.wikimedia.org/wikipedia/commons/0/05/Red_circle.svg);
+     position: absolute;
+     padding: 7px 3px;
 }
 </style>
 </head>
@@ -13,9 +13,7 @@
 
 <center>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Red_circle.svg" alt="">
-
-<img style="width:40%;" id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlz60qFLU0e0-uslSlrbpaSBpO3C-1gstCew&usqp=CAU">
+<img style="width:40%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlz60qFLU0e0-uslSlrbpaSBpO3C-1gstCew&usqp=CAU">
 
 <br>
 
@@ -24,34 +22,24 @@
 </center>
 
 <script>
-function getRandomInt (min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
-$.fn.randomOrder = function(animate) {
-  this.each(function() {
-    var image = $(this);
-    
-    // Viewport Dimensions
-    var vpHeight = $(window).height();
-    var vpWidth = $(window).width();
-    
-    // Image Position
-    var xPos = getRandomInt(0, vpWidth - image.width());
-    var yPos = getRandomInt(0, vpHeight - image.height());
-    var zIndex = getRandomInt(0,13);
-    
-    // Animation Duration
-    if(animate) var dur = 500;
-    else var dur = 0;
-    
-    image.animate({left: xPos, top: yPos, 'z-index': zIndex}, dur);
-  });
-};
-
-//Setup
-$('img').randomOrder(false);
-$('img').draggable({stack: "img"});
+$(document).ready(function(){
+    var ticket="<div class='image'></div>";
+    var numCircles=1;
+    for(var x=1;x<=numTickets;x++){
+        $(ticket).appendTo("body");
+    }
+    // get window dimentions
+    var ww = $(window).width();
+    var wh = $(window).height();
+    $(".ticket").each(function(i){
+        var rotationNum=Math.round((Math.random()*360)+1);
+        var rotation="rotate("+rotationNum+"deg)";
+        var posx = Math.round(Math.random() * ww)-100;
+        var posy = Math.round(Math.random() * wh)-100;
+        $(this).css("top", posy + "px").css("left", posx + "px").css("transform",rotation).css("-ms-transform",rotation).css("-webkit-transform",rotation);
+    });
+});
 
 </script>
 
