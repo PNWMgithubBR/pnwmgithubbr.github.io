@@ -68,6 +68,13 @@ onload = function() {
   drawBackgroundImage(canvas, ctx);
   const saltImage = drawSalt('https://upload.wikimedia.org/wikipedia/commons/0/05/Red_circle.svg', canvas, ctx);
 };
+
+onload = function() {
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  drawBackgroundImage(canvas, ctx);
+  const saltImage = drawSalt('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-hwQj8bI_CFzo9-VEAkbDq7x0rks-auwM-w&usqp=CAU', canvas, ctx);
+};
  
 </script>
 
