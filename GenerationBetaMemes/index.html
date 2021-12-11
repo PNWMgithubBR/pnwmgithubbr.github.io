@@ -26,6 +26,22 @@
 
 <script>
   
+function drawImage() {
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  var img = document.getElementById('salt-bae');  
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+}
+
+onload = function() {
+  drawImage();
+}
+
+
+Resources
+
 var images = [img1, img2];
 
 var img1 = new Image();
