@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <title>GenBetaMemes</title>
@@ -19,18 +18,48 @@
 
 <script>
 
-function drawImage() {
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  var img = document.getElementById('the-wok');  
-  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
 
+function drawBackgroundImage(canvas, ctx) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const img = document.getElementById('the-wok');  
+  ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+}
+
+function getRandomImageSize(min, max, width, height) {
+  const ratio = width / height;  // Used for aspect ratio
+  width = getRandomInt(min, max);
+  height = width / ratio;  
+  return { width, height };
+}
+
+function drawSalt(src, canvas, ctx) {
+  // Create an image object. (Not part of the dom)
+  const image = new Image();
+  image.src = src;
+  
+  // After the image has loaded, draw it to the canvas
+   image.onload = function() {
+    for (let i = 0; i < 1; i++) {
+      const randomX = getRandomInt(5, canvas.width/5);
+      const randomY = getRandomInt(canvas.height-900, canvas.height);
+      const dimensions = getRandomImageSize(500, 500, image.width, image.height);
+      ctx.drawImage(image, randomX, randomY, dimensions.width, dimensions.height);
+    }
+  }
+  return image;
 }
 
 onload = function() {
-  drawImage();
-}
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  drawBackgroundImage(canvas, ctx);
+  const saltImage = drawSalt('https://upload.wikimedia.org/wikipedia/commons/0/05/Red_circle.svg', canvas, ctx);
+};
  
 </script>
 
