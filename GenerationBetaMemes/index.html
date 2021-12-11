@@ -16,6 +16,27 @@
 
 <script>
 
+var images = [img1, img2, ];
+
+var img1 = new Image();
+img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlz60qFLU0e0-uslSlrbpaSBpO3C-1gstCew&usqp=CAU";
+
+window.onload = function() {
+    animate();
+}
+
+var object = {
+    ...
+    // give random image
+    image: images[Math.floor(Math.random()*images.length)]
+}
+
+for (var i = 0; i < objects.length; i++) {
+    var object = objects[i];
+    object.y += spawnRateOfDescent;
+    ctx.drawImage(object.image, object.x, object.y, 30, 30);
+}
+
 </script>
 
 </body>
