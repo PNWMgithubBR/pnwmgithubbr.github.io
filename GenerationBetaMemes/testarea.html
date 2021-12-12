@@ -7,15 +7,12 @@
 
 <h1>Testing Area</h1>
 
-<video src="http://www.w3schools.com/html/mov_bbb.mp4" id="myvideo" width="320" height="240" autoplay muted playsinline style="background:black">
-</video>
-
 <script>
 
 var vidElement = document.getElementById('myvideo');
 var vidSources = [
-  "http://www.w3schools.com/html/mov_bbb.mp4", 
-  "http://www.w3schools.com/html/movie.mp4"
+  "GenerationBetaMemes/videos/tvpinguim.mp4", 
+  "GenerationBetaMemes/videos/moai.mp4"
   ];
 var activeVideo = Math.floor((Math.random() * vidSources.length));
 vidElement.src = vidSources[activeVideo];
