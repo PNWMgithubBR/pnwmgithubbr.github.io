@@ -7,23 +7,29 @@
 
 <h1>Testing Area</h1>
 
-<div> <a id="myVideoTag"> </a> </div>
+<video src="http://www.w3schools.com/html/mov_bbb.mp4" id="myvideo" width="320" height="240" autoplay muted playsinline style="background:black">
+</video>
 
 <script>
 
-//# generate random number
-var number = Math.floor(Math.random() * 3) + 1;
-var mySrc = "/GenerationBetaMemes/videos/" + number + ".mp4";
+var vidElement = document.getElementById('myvideo');
+var vidSources = [
+  "http://www.w3schools.com/html/mov_bbb.mp4", 
+  "http://www.w3schools.com/html/movie.mp4"
+  ];
+var activeVideo = Math.floor((Math.random() * vidSources.length));
+vidElement.src = vidSources[activeVideo];
+vidElement.addEventListener('ended', function(e) {
+  // update the active video index
+  activeVideo = (++activeVideo) % vidSources.length;
+  if(activeVideo === vidSources.length){
+    activeVideo = 0;
+  }
 
-//# create video element to append into above <a> tag           
-tmpElement = document.createElement( "video");
-tmpElement.setAttribute("controls", "true" );
-tmpElement.setAttribute("width", "800");
-tmpElement.setAttribute("src", mySrc);
-
-//# append the dynamically created element...
-var container = document.getElementById("myVideoTag");
-container.appendChild(tmpElement);
+  // update the video source and play
+  vidElement.src = vidSources[activeVideo];
+  vidElement.play();
+});
   
   </script>
   
