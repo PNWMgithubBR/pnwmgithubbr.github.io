@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>Testing Area</h1>
+
+<script>
+
+//# generate random number
+var number = Math.floor(Math.random() * 3) + 1;
+var mySrc = "/images/media/Video-" + number + ".mp4";
+
+//# create video element to append into above <a> tag           
+tmpElement = document.createElement( "video");
+tmpElement.setAttribute("controls", "true" );
+tmpElement.setAttribute("width", "800");
+tmpElement.setAttribute("src", mySrc);
+
+//# append the dynamically created element...
+var container = document.getElementById("myVideoTag");
+container.appendChild(tmpElement);
+  
+  </script>
+  
+</body>
+</html>
