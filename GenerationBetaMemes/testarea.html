@@ -7,15 +7,15 @@
 
 <h1>Testing Area</h1>
 
-<video src="GenerationBetaMemes/videos/tvpinguim.mp4" id="myvideo" width="320" height="240" autoplay muted playsinline style="background:black">
+<video src="videos/tvpinguim.mp4" id="myvideo" width="320" height="240" autoplay muted playsinline style="background:black">
 </video>
 
 <script>
 
 var vidElement = document.getElementById('myvideo');
 var vidSources = [
-  "GenerationBetaMemes/videos/tvpinguim.mp4", 
-  "GenerationBetaMemes/videos/moai.mp4"
+  "videos/tvpinguim.mp4", 
+  "videos/moai.mp4"
   ];
 var activeVideo = Math.floor((Math.random() * vidSources.length));
 vidElement.src = vidSources[activeVideo];
