@@ -9,10 +9,8 @@
 
 - 🐦 **Meu twitter da TADL!**
 > <img src="imagens_especiais/twitter.gif" style="width:88px;height:31px;">
-=======
-Meu twitter da TADL!
 <a href="https://twitter.com/tadldzn">
-<img src="imagens_especiais/twitter.gif" style="width:88px;height:31px;">
+ </a>
 
 ---
 
