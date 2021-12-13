@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>Testing Area</h1>
+
+<video src="videos/tvpinguim.mp4" id="myvideo" width="320" height="240" autoplay muted playsinline style="background:black">
+</video>
+
+<script>
+
+var vidElement = document.getElementById('myvideo');
+var vidSources = [
+  "videos/tvpinguim.mp4", 
+  "videos/moai.mp4"
+  ];
+var activeVideo = Math.floor((Math.random() * vidSources.length));
+vidElement.src = vidSources[activeVideo];
+vidElement.addEventListener('ended', function(e) {
+  // update the active video index
+  activeVideo = (++activeVideo) % vidSources.length;
+  if(activeVideo === vidSources.length){
+    activeVideo = 0;
+  }
+
+  // update the video source and play
+  vidElement.src = vidSources[activeVideo];
+  vidElement.play();
+});
+  
+  </script>
+  
+</body>
+</html>
