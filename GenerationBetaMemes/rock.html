@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>GenBetaMemes</title>
+<style>
+div {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+        
+}
+           body {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlz60qFLU0e0-uslSlrbpaSBpO3C-1gstCew&usqp=CAU');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+</head>
+<body>
+
+<center>
+
+    
+<div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Red_circle.svg/768px-Red_circle.svg.png"></div>
+<div><img src="https://c.tenor.com/Pgjl_WcXUikAAAAC/flightreacts.gif"></div>
+   
+<br>
+
+<i style="color:White; font-size:5vw;">GenBeta</i>
+
+</center>
+
+<script>
+           
+// collect all the divs
+var divs = document.getElementsByTagName('div');
+// get window width and height
+var winWidth = window.innerWidth;
+var winHeight = window.innerHeight;
+
+// i stands for "index". you could also call this banana or haircut. it's a variable
+for ( var i=0; i < divs.length; i++ ) {
+ 	
+    // shortcut! the current div in the list
+    var thisDiv = divs[i];
+    
+    // get random numbers for each element
+    randomTop = getRandomNumber(0, winHeight);
+    randomLeft = getRandomNumber(0, winWidth);
+    
+    // update top and left position
+    thisDiv.style.top = randomTop +"px";
+    thisDiv.style.left = randomLeft +"px";
+    
+}
+
+// function that returns a random number between a min and max
+function getRandomNumber(min, max) {
+    
+  return Math.random() * (max - min) + min;
+    
+}
+                      
+           </script>
+
+</body>
+</html>
