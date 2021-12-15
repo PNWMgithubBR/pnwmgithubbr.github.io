@@ -1,16 +1,35 @@
 <html>
 <head>
 <title>GenBetaMemes</title>
+<style>
+  #myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+  </style>
 </head>
 <body>
 
 <center>
 <i style="color:White; font-size:5vw;">GenBeta</i>
 
-</center>
+<video autoplay id="myVideo">
+  <source src="/videos/billy1.mp4" type="video/mp4">
+</video>
+  
+<video autoplay id="myVideo2">
+  <source src="/videos/billy2.mp4" type="video/mp4">
+</video>
 
-</body>
-</html>
+</center>
+  
+<script>
+  
+// Get the video
+var video = document.getElementById("myVideo");
 
 const yourFunction = async () => {
   await delay(5000);
@@ -19,3 +38,11 @@ const yourFunction = async () => {
   await delay(5000);
   console.log("Waited an additional 5s");
 };
+  
+// Get the video
+var video = document.getElementById("myVideo2");
+
+  </script>
+
+</body>
+</html>
