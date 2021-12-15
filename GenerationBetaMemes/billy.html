@@ -40,7 +40,12 @@
 <script>
   
 // Get the video
-var video = document.getElementById("myVideo");
+var video = document.getElementById("myVideo").addEventListener('ended',myHandler,false);
+        function myHandler(e) {
+            if(!e) { e = window.event; }
+            // What you want to do after the event
+            document.getElementById('myVideo').style.display="none";
+            document.getElementById('videoEnd').style.display="block";
 
 const yourFunction = async () => {
   await delay(2000);
@@ -48,7 +53,12 @@ const yourFunction = async () => {
 };
   
 // Get the video
-var video = document.getElementById("myVideo2");
+var video = document.getElementById("myVideo2").addEventListener('ended',myHandler,false);
+        function myHandler(e) {
+            if(!e) { e = window.event; }
+            // What you want to do after the event
+            document.getElementById('myVideo2').style.display="none";
+            document.getElementById('videoEnd2').style.display="block";
 
   </script>
 
