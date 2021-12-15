@@ -30,6 +30,10 @@
 <video autoplay muted id="myVideo2">
   <source src="videos/billy2.mp4" type="video/mp4">
 </video>
+  
+<div id="videoEnd" style="display:none">Video end</div>
+  
+<div id="videoEnd2" style="display:none">Video end</div>
 
 </center>
   
@@ -39,11 +43,8 @@
 var video = document.getElementById("myVideo");
 
 const yourFunction = async () => {
-  await delay(5000);
+  await delay(2000);
   console.log("Waited 5s");
-
-  await delay(5000);
-  console.log("Waited an additional 5s");
 };
   
 // Get the video
