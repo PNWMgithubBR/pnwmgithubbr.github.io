@@ -9,15 +9,14 @@
 <i style="color:Black; font-size:2.5vw;">Audios</i>
 </center>
 
-    <script>
-      function play() {
-        var audio = document.getElementById("audio");
-        audio.play();
-      }
-    </script>
+<script>
+      const interval = setInterval(function() {
+   var audio = new Audio('vineboom.mp3');
+audio.play();
+ }, 5000);
 
-    <input type="button" value="PLAY" onclick="play()">
-    <audio id="audio" src="vineboom.mp3"></audio>
+clearInterval(interval);
+</script>
 
 </body>
 </html>
