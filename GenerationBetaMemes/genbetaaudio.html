@@ -8,21 +8,16 @@
 <i style="color:Black; font-size:5vw;">GenBeta</i>
 <i style="color:Black; font-size:2.5vw;">Audios</i>
 </center>
-  
-<script>
 
-//const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+    <script>
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+    </script>
 
-//const loop = async () => {
-  //for (const a of [1, 2, 3]) {
-    var audio = new Audio('vineboom.mp3');
-    audio.play();
-   // await wait(3000)
- // }
-//}
-//loop()
-
-</script>
+    <input type="button" value="PLAY" onclick="play()">
+    <audio id="audio" src="vineboom.mp3"></audio>
 
 </body>
 </html>
