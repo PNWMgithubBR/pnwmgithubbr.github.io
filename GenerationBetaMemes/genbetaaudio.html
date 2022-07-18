@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>GenBetaMemes</title>
+<title>GenBetaMemes - Audio</title>
 <style>
   #myVideo {
   position: fixed;
@@ -23,12 +23,22 @@
 <center>
 <i style="color:Black; font-size:5vw;">GenBeta</i>
 <i style="color:Black; font-size:2.5vw;">Audios</i>
-
 </center>
   
 <script>
 
-  </script>
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
+const loop = async () => {
+  for (const a of [1, 2, 3]) {
+    var audio = new Audio('audio_file.mp3');
+    audio.play();
+    await wait(2000)
+  }
+}
+loop()
+
+</script>
 
 </body>
 </html>
