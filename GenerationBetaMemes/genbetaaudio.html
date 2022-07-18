@@ -13,9 +13,11 @@
 
 <b>Vá em outros navegadores para melhor experiência!</b>
 
-<audio id="musicplayer" autoplay>
-  <source src="vineboom.mp3">
-</audio>
+<script>
+let playSound = () => new Audio("vineboom.mp3").play();
+</scirpt>
+<input type="image" id="myimage" style="height:200px;width:200px;" src="https://i.ytimg.com/vi/829pvBHyG6I/mqdefault.jpg" 
+onclick="playSound.play()">
 
 
 </body>
