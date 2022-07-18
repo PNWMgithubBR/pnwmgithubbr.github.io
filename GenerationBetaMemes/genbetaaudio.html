@@ -14,9 +14,15 @@
 <b>Vá em outros navegadores para melhor experiência!</b>
 
 <script>
+const milliseconds = 4000 
+
+setInterval(
+  () => { 
 var audio = new Audio("vineboom.mp3");
 audio.oncanplaythrough = function(){}
 audio.onended = function(){}
+
+}, milliseconds);
 </script>
 <input type="image" id="myimage" style="height:200px;width:200px;" src="https://i.ytimg.com/vi/829pvBHyG6I/mqdefault.jpg" 
 onclick="audio.play()">
