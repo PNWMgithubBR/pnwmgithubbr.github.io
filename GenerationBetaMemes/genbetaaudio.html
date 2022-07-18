@@ -9,23 +9,10 @@
 <i style="color:Black; font-size:2.5vw;">Audios</i>
 </center>
 
-<audio controls loop>
+<audio controls autoplay loop>
   <source src="vineboom.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
-
-<script>
- var source = "https://pnwmgithubbr.github.io/GenerationBetaMemes/vineboom.mp3"
- var audio = document.createElement("audio");
- //
- audio.autoplay = true;
- //
- audio.load()
- audio.addEventListener("load", function() { 
-     audio.play(); 
- }, true);
- audio.src = source;
-</script>
 
 </body>
 </html>
