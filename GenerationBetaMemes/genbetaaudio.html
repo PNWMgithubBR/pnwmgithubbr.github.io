@@ -31,9 +31,9 @@ const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
 const loop = async () => {
   for (const a of [1, 2, 3]) {
-    var audio = new Audio('audio_file.mp3');
+    var audio = new Audio('vineboom.mp3');
     audio.play();
-    await wait(2000)
+    await wait(3000)
   }
 }
 loop()
