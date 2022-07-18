@@ -11,9 +11,12 @@
 
 <script>
       const interval = setInterval(function() {
-   var audio = new Audio('vineboom.mp3');
-audio.play();
- }, 5000);
+   function play() {
+  document.getElementById("vineboom.mp3").play();
+}
+
+play();
+ }, 8000);
 
 clearInterval(interval);
 </script>
