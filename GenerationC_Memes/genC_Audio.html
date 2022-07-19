@@ -20,14 +20,9 @@ onclick="audio.play()">
 
 <script>
 function play() {
-    var audio2 = document.getElementById('goofyahhsounds.mp3');
-    if (audio2.paused) {
-        audio2.play();
-    }else{
-        audio2.pause();
-        audio2.currentTime = 0
-    }
-}
+var audio2 = new Audio("goofyahhsounds2.mp3");
+audio.oncanplaythrough = function(){}
+audio.onended = function(){}
 //audio2.loop = function(){}
 </script>
 <input type="image" id="myimage" style="height:200px;width:200px;" src="https://images.emojiterra.com/twitter/v14.0/128px/1f480.png" 
