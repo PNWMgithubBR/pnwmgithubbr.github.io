@@ -24,6 +24,13 @@ audio2.sound = 0.5
 audio2.oncanplaythrough = function(){}
 audio2.onended = function(){}
 //audio2.loop = function(){}
+if (audio.paused) {
+        audio.play();
+    }else{
+        audio.pause();
+        audio.currentTime = 0
+    }
+}
 </script>
 <input type="image" id="myimage" style="height:200px;width:200px;" src="https://images.emojiterra.com/twitter/v14.0/128px/1f480.png" 
 onclick="audio2.play()">
