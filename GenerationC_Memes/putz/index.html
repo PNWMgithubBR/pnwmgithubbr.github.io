@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Putz - GenC</title>
+    <style>
+        .container {
+            position: relative;
+            width: 1000px; /* Defina a largura desejada para o contêiner */
+            height: 300px; /* Defina a altura desejada para o contêiner */
+            top: -700px;
+        }
+
+        #imagem-preview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #imagem-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @font-face {
+            font-family: myFirstFont;
+            src: url(ZABALDEMO-ULTRA.OTF);
+        }
+
+        div {
+            font-family: myFirstFont;
+        }
+
+        .img {
+            position: relative;
+            width: 100%; /* for IE 6 */
+        }
+
+        h2 {
+        position: relative;
+        top: -365px;
+        left: 29px;
+        letter-spacing: -1.5px;
+        font-size: 131px;
+        color: white;
+        text-shadow: rgb(0, 0, 0) 5px 0px 10px;
+        z-index: 2; /* Define um índice Z maior para ficar na frente do contêiner */
+    }
+
+        .branco {
+            filter: invert(2%) sepia(86%) saturate(0%) hue-rotate(49deg) brightness(94%) contrast(105%);
+        }
+
+        .vermelho {
+            filter: invert(8%) sepia(9%) saturate(7038%) hue-rotate(327deg) brightness(93%) contrast(103%);
+        }
+
+        .laranja {
+            filter: invert(3%) sepia(6%) saturate(5928%) hue-rotate(344deg) brightness(93%) contrast(105%);
+        }
+
+        .azul {
+            filter: invert(4%) sepia(57%) saturate(1098%) hue-rotate(175deg) brightness(97%) contrast(107%);
+        }
+
+        .verde {
+            filter: invert(8%) sepia(88%) saturate(545%) hue-rotate(94deg) brightness(93%) contrast(101%);
+        }
+
+        .roxo {
+            filter: invert(9%) sepia(37%) saturate(2315%) hue-rotate(250deg) brightness(106%) contrast(108%);
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="imagem-input">
+    <div class="img">
+        <button onclick="executarCSS('branco')">Branco</button>
+        <button onclick="executarCSS('vermelho')">Vermelho</button>
+        <button onclick="executarCSS('laranja')">Laranja</button>
+        <button onclick="executarCSS('azul')">Azul</button>
+        <button onclick="executarCSS('verde')">Verde</button>
+        <button onclick="executarCSS('roxo')">Roxo</button>
+        <br>
+        <img src="putz.jpg" class="branco">
+        <h2>PUTZ</h2>
+        <br>
+    </div>
+    <div class="container">
+        <div id="imagem-preview"></div>
+    </div>
+    <script>
+        function executarCSS(cor) {
+            var elemento = document.querySelector(".img img");
+            elemento.classList.remove("branco", "vermelho", "laranja", "azul", "verde", "roxo");
+            elemento.classList.add(cor);
+        }
+
+        const input = document.getElementById('imagem-input');
+        const preview = document.getElementById('imagem-preview');
+
+        input.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                preview.innerHTML = '';
+                preview.appendChild(img);
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
