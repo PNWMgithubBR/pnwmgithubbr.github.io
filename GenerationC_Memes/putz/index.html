@@ -40,15 +40,15 @@
         }
 
         h2 {
-        position: relative;
-        top: -365px;
-        left: 29px;
-        letter-spacing: -1.5px;
-        font-size: 131px;
-        color: white;
-        text-shadow: rgb(0, 0, 0) 5px 0px 10px;
-        z-index: 2; /* Define um índice Z maior para ficar na frente do contêiner */
-    }
+            position: relative;
+            top: -365px;
+            left: 29px;
+            letter-spacing: -1.5px;
+            font-size: 131px;
+            color: white;
+            text-shadow: rgb(0, 0, 0) 5px 0px 10px;
+            z-index: 2; /* Define um índice Z maior para ficar na frente do contêiner */
+        }
 
         .branco {
             filter: invert(2%) sepia(86%) saturate(0%) hue-rotate(49deg) brightness(94%) contrast(105%);
@@ -73,6 +73,30 @@
         .roxo {
             filter: invert(9%) sepia(37%) saturate(2315%) hue-rotate(250deg) brightness(106%) contrast(108%);
         }
+
+        span.white {
+            color: rgb(255, 255, 255);
+        }
+
+        span.red {
+            color: red;
+        }
+
+        span.orange {
+            color: orange;
+        }
+
+        span.blue {
+            color: blue;
+        }
+
+        span.green {
+            color: green;
+        }
+
+        span.purple {
+            color: purple;
+        }
     </style>
 </head>
 <body>
@@ -86,7 +110,7 @@
         <button onclick="executarCSS('roxo')">Roxo</button>
         <br>
         <img src="putz.jpg" class="branco">
-        <h2>PUTZ</h2>
+        <h2><span id="letter">P</span>UTZ</h2>
         <br>
     </div>
     <div class="container">
@@ -97,8 +121,11 @@
     <script>
         function executarCSS(cor) {
             var elemento = document.querySelector(".img img");
-            elemento.classList.remove("branco", "vermelho", "laranja", "azul", "verde", "roxo");
-            elemento.classList.add(cor);
+            elemento.className = cor;
+
+            var letterSpan = document.getElementById("letter");
+            letterSpan.className = '';
+            letterSpan.classList.add(cor);
         }
 
         const input = document.getElementById('imagem-input');
