@@ -1,0 +1,98 @@
+.container {
+    position: relative;
+    width: 1000px; /* Defina a largura desejada para o contêiner */
+    height: 300px; /* Defina a altura desejada para o contêiner */
+    top: -700px;
+}
+
+#imagem-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: drop-shadow(0 0 1rem white);
+}
+
+#imagem-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(Cocogoose_Pro-trial.ttf);
+}
+
+div {
+    font-family: myFirstFont;
+}
+
+.img {
+    position: relative;
+    width: 100%; /* for IE 6 */
+}
+
+h2 {
+    position: relative;
+    top: -355px;
+    left: 29px;
+    font-size: 120px;
+    color: white;
+    text-shadow: rgb(0, 0, 0) 5px 0px 10px;
+    z-index: 2; /* Define um índice Z maior para ficar na frente do contêiner */
+}
+
+.filtro-preto-branco {
+    filter: grayscale(100%);
+}
+
+.branco {
+    filter: invert(2%) sepia(86%) saturate(0%) hue-rotate(49deg) brightness(94%) contrast(105%);
+}
+
+.vermelho {
+    filter: invert(8%) sepia(9%) saturate(7038%) hue-rotate(327deg) brightness(93%) contrast(103%);
+}
+
+.laranja {
+    filter: invert(3%) sepia(6%) saturate(5928%) hue-rotate(344deg) brightness(93%) contrast(105%);
+}
+
+.azul {
+    filter: invert(4%) sepia(57%) saturate(1098%) hue-rotate(175deg) brightness(97%) contrast(107%);
+}
+
+.verde {
+    filter: invert(8%) sepia(88%) saturate(545%) hue-rotate(94deg) brightness(93%) contrast(101%);
+}
+
+.roxo {
+    filter: invert(9%) sepia(37%) saturate(2315%) hue-rotate(250deg) brightness(106%) contrast(108%);
+}
+
+span.white {
+    color: rgb(255, 255, 255);
+}
+
+span.red {
+    color: red;
+}
+
+span.orange {
+    color: orange;
+}
+
+span.blue {
+    color: blue;
+}
+
+span.green {
+    color: green;
+}
+
+span.purple {
+    color: purple;
+}
