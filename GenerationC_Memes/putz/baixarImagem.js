@@ -4,7 +4,7 @@ function downloadCanvas() {
   // Define o atributo 'download' com o nome do arquivo desejado
   link.download = 'imagem.jpg';
   // Define o atributo 'href' com o conteúdo do canvas (convertido para base64)
-  link.href = cnv.toDataURL('image/jpeg', 1); // Qualidade de 80%
+  link.href = cnv.toDataURL('image/jpeg', 1);
   // Simula um clique no link para iniciar o download
   link.click();
 }
