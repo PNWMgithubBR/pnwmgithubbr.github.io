@@ -6,9 +6,9 @@
     <style>
         .container {
             position: relative;
-            width: 1000px; /* Defina a largura desejada para o contêiner */
-            height: 300px; /* Defina a altura desejada para o contêiner */
-            top: -700px;
+            width: 1500px; /* Defina a largura desejada para o contêiner */
+            height: 450px; /* Defina a altura desejada para o contêiner */
+            top: -1033px;
         }
 
         #imagem-preview {
@@ -42,9 +42,9 @@
 
         h2 {
             position: relative;
-            top: -355px;
-            left: 29px;
-            font-size: 120px;
+            top: -520px;
+            left: 40px;
+            font-size: 180px;
             color: white;
             text-shadow: rgb(0, 0, 0) 5px 0px 10px;
             z-index: 2; /* Define um índice Z maior para ficar na frente do contêiner */
@@ -97,6 +97,10 @@
         span.purple {
             color: purple;
         }
+
+        .filtro-preto-branco {
+            filter: grayscale(100%);
+        }
     </style>
 </head>
 <body>
@@ -109,7 +113,9 @@
         <button onclick="executarCSS('verde')">Verde</button>
         <button onclick="executarCSS('roxo')">Roxo</button>
         <br>
-        <img src="putz.png" class="branco">
+        <button onclick="alternarFiltro()">Alternar Preto/Branco</button>
+        <br>
+        <img src="putz.png" class="branco" style="width: 50%; height: 50%;">
         <h2><span id="letter">P</span>UTZ</h2>
         <br>
     </div>
@@ -126,6 +132,17 @@
             var letterSpan = document.getElementById("letter");
             letterSpan.className = '';
             letterSpan.classList.add(cor);
+        }
+
+        function alternarFiltro() {
+            var imagemPreview = document.getElementById("imagem-preview");
+            var imagem = imagemPreview.querySelector("img");
+            
+            if (imagem.classList.contains("filtro-preto-branco")) {
+                imagem.classList.remove("filtro-preto-branco");
+            } else {
+                imagem.classList.add("filtro-preto-branco");
+            }
         }
 
         const input = document.getElementById('imagem-input');
