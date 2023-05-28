@@ -102,11 +102,27 @@
         span.purple {
             color: purple;
         }
+
+        .container {
+    position: relative;
+    width: 1000px; /* Defina a largura desejada para o contêiner */
+    height: 300px; /* Defina a altura desejada para o contêiner */
+    top: 0; /* Alterado para 0 para tornar o contêiner inicialmente visível */
+    left: 0; /* Alterado para 0 para tornar o contêiner inicialmente visível */
+}
+
     </style>
 </head>
 <body>
     <h1>Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e + ao mesmo tempo para aumentar o tamanho da página se você estiver no PC</h1>
     <input type="file" id="imagem-input">
+    <br>
+    <button onmousedown="iniciarMovimento('cima')" onmouseup="pararMovimento()">▲</button>
+    <button onmousedown="iniciarMovimento('baixo')" onmouseup="pararMovimento()">▼</button>
+    <button onmousedown="iniciarMovimento('esquerda')" onmouseup="pararMovimento()">◄</button>
+    <button onmousedown="iniciarMovimento('direita')" onmouseup="pararMovimento()">►</button>
+    <br>
+    <p>A Imagem enviada surgirá abaixo, você terá que mover apertando e segurando setas acima</p>
     <div class="img">
         <button onclick="executarCSS('branco')">Branco</button>
         <button onclick="executarCSS('vermelho')">Vermelho</button>
@@ -117,14 +133,46 @@
         <br>
         <img src="putz.png" class="">
         <h2><span id="letter">P</span>UTZ</h2>
-        <br>
     </div>
     <div class="container">
         <div id="imagem-preview"></div>
     </div>
-    <br>
-    <h1>Em desenvolvimento...</h1>
     <script>
+var intervaloMovimento;
+var direcaoMovimento;
+
+function iniciarMovimento(direcao) {
+    direcaoMovimento = direcao;
+    intervaloMovimento = setInterval(moverConteiner, 50); // Ajuste o intervalo conforme necessário (em milissegundos)
+}
+
+function pararMovimento() {
+    clearInterval(intervaloMovimento);
+}
+
+function moverConteiner() {
+    var conteiner = document.querySelector('.container');
+    var posicaoTop = parseInt(conteiner.style.top) || 0;
+    var posicaoEsquerda = parseInt(conteiner.style.left) || 0;
+    var incremento = 5; // Defina o incremento de movimento aqui
+
+    switch (direcaoMovimento) {
+        case 'cima':
+            conteiner.style.top = posicaoTop - incremento + 'px';
+            break;
+        case 'baixo':
+            conteiner.style.top = posicaoTop + incremento + 'px';
+            break;
+        case 'esquerda':
+            conteiner.style.left = posicaoEsquerda - incremento + 'px';
+            break;
+        case 'direita':
+            conteiner.style.left = posicaoEsquerda + incremento + 'px';
+            break;
+    }
+}
+
+
     function executarCSS(cor) {
         var elemento = document.querySelector(".img img");
         elemento.classList.remove("vermelho", "laranja", "azul", "verde", "roxo");
