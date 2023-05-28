@@ -1,182 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Putz - GenC</title>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <style>
-        .container {
-            position: relative;
-            width: 1000px; /* Defina a largura desejada para o contêiner */
-            height: 300px; /* Defina a altura desejada para o contêiner */
-            top: -700px;
-        }
-
-        #imagem-preview {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            filter: drop-shadow(0 0 1rem white);
-        }
-
-        #imagem-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        @font-face {
-            font-family: myFirstFont;
-            src: url(Cocogoose_Pro-trial.ttf);
-        }
-
-        div {
-            font-family: myFirstFont;
-        }
-
-        .img {
-            position: relative;
-            width: 100%; /* for IE 6 */
-        }
-
-        h2 {
-            position: relative;
-            top: -355px;
-            left: 29px;
-            font-size: 120px;
-            color: white;
-            text-shadow: rgb(0, 0, 0) 5px 0px 10px;
-            z-index: 2; /* Define um índice Z maior para ficar na frente do contêiner */
-        }
-
-        .filtro-preto-branco {
-            filter: grayscale(100%);
-        }
-
-        .branco {
-            filter: invert(2%) sepia(86%) saturate(0%) hue-rotate(49deg) brightness(94%) contrast(105%);
-        }
-
-        .vermelho {
-            filter: invert(8%) sepia(9%) saturate(7038%) hue-rotate(327deg) brightness(93%) contrast(103%);
-        }
-
-        .laranja {
-            filter: invert(3%) sepia(6%) saturate(5928%) hue-rotate(344deg) brightness(93%) contrast(105%);
-        }
-
-        .azul {
-            filter: invert(4%) sepia(57%) saturate(1098%) hue-rotate(175deg) brightness(97%) contrast(107%);
-        }
-
-        .verde {
-            filter: invert(8%) sepia(88%) saturate(545%) hue-rotate(94deg) brightness(93%) contrast(101%);
-        }
-
-        .roxo {
-            filter: invert(9%) sepia(37%) saturate(2315%) hue-rotate(250deg) brightness(106%) contrast(108%);
-        }
-
-        span.white {
-            color: rgb(255, 255, 255);
-        }
-
-        span.red {
-            color: red;
-        }
-
-        span.orange {
-            color: orange;
-        }
-
-        span.blue {
-            color: blue;
-        }
-
-        span.green {
-            color: green;
-        }
-
-        span.purple {
-            color: purple;
-        }
-    </style>
-</head>
-<body>
-    <h1>Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e + ao mesmo tempo para aumentar o tamanho da página se você estiver no PC</h1>
-    <input type="file" id="imagem-input">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>
+      Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e
+      + ao mesmo tempo para aumentar o tamanho da página se você estiver no PC
+    </h1>
+    <input type="file" id="imagem-input" accept="image/*" />
     <div class="img">
-        <button onclick="executarCSS('branco')">Branco</button>
-        <button onclick="executarCSS('vermelho')">Vermelho</button>
-        <button onclick="executarCSS('laranja')">Laranja - Amarelo</button>
-        <button onclick="executarCSS('azul')">Azul</button>
-        <button onclick="executarCSS('verde')">Verde</button>
-        <button onclick="executarCSS('roxo')">Roxo</button>
-        <br>
-        <img src="putz.png" class="">
-        <h2><span id="letter">P</span>UTZ</h2>
-        <br>
-    </div>
-    <div class="container">
+      <button onclick="cores('branco')">Branco</button>
+      <button onclick="cores('vermelho')">Vermelho</button>
+      <button onclick="cores('laranja')">Laranja</button>
+      <button onclick="cores('amarelo')">Amarelo</button>
+      <button onclick="cores('azulClaro')">Azul Claro</button>
+      <button onclick="cores('azulEscuro')">Azul Escuro</button>
+      <button onclick="cores('verde')">Verde</button>
+      <button onclick="cores('roxo')">Roxo</button>
+      <button onclick="cores('rosa')">rosa</button>
+      <button id="esquerda">&#9664;</button>
+      <button id="direita">&#9654;</button>
+      <button id="cima">&#9650;</button>
+      <button id="baixo">&#9660;</button>
+      <button id="download-button" onclick="baixarImagem()">
+        Baixar Imagem
+      </button>
+      <br />
+      <!-- <img src="putz.png" class=""> -->
+      <!-- <h2><span id="letter">P</span>UTZ</h2> -->
+      <canvas id="canvas" width="640" height="350"></canvas>
+      <div class="container">
         <div id="imagem-preview"></div>
+      </div>
+      <br />
     </div>
-    <br>
+    <br />
     <h1>Em desenvolvimento...</h1>
-    <script>
-    function executarCSS(cor) {
-        var elemento = document.querySelector(".img img");
-        elemento.classList.remove("vermelho", "laranja", "azul", "verde", "roxo");
-        elemento.classList.add(cor);
+    <!-- <script src="./script.js"></script> -->
+    <script src="./cnvScript.js"></script>
+    <script src="./baixarImagem.js"></script>
+  </body>
 
-        var letterSpan = document.getElementById("letter");
-        letterSpan.className = '';
-        letterSpan.classList.add(cor);
-
-        var elementoPreview = document.querySelector("#imagem-preview img");
-        elementoPreview.style.filter = "drop-shadow(0 0 1rem " + getCorHexadecimal(cor) + ")";
-
-        if (cor === "branco") {
-            elementoPreview.style.filter = "grayscale(100%) drop-shadow(0 0 1rem white)"; // Aplica o filtro de preto e branco e o sombreamento
-        }
-    }
-
-    function getCorHexadecimal(cor) {
-            switch (cor) {
-                case 'branco':
-                    return '#FFFFFF';
-                case 'vermelho':
-                    return '#FF0000';
-                case 'laranja':
-                    return '#FFA500';
-                case 'azul':
-                    return '#0000FF';
-                case 'verde':
-                    return '#008000';
-                case 'roxo':
-                    return '#800080';
-                default:
-                    return '#000000'; // Cor preta como padrão
-            }
-        }
-
-        const input = document.getElementById('imagem-input');
-        const preview = document.getElementById('imagem-preview');
-
-        input.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                preview.innerHTML = '';
-                preview.appendChild(img);
-            };
-
-            reader.readAsDataURL(file);
-        });
-    </script>
-</body>
 </html>
