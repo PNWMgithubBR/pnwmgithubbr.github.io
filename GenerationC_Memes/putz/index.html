@@ -18,6 +18,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            filter: drop-shadow(0 0 1rem white);
         }
 
         #imagem-preview img {
@@ -53,7 +54,7 @@
         .filtro-preto-branco {
             filter: grayscale(100%);
         }
-        
+
         .branco {
             filter: invert(2%) sepia(86%) saturate(0%) hue-rotate(49deg) brightness(94%) contrast(105%);
         }
@@ -104,7 +105,7 @@
     </style>
 </head>
 <body>
-    <h1>Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e + ao mesmo tempo para aumentar o tamanho da página</h1>
+    <h1>Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e + ao mesmo tempo para aumentar o tamanho da página se você estiver no PC</h1>
     <input type="file" id="imagem-input">
     <div class="img">
         <button onclick="executarCSS('branco')">Branco</button>
@@ -114,9 +115,7 @@
         <button onclick="executarCSS('verde')">Verde</button>
         <button onclick="executarCSS('roxo')">Roxo</button>
         <br>
-        <button onclick="alternarFiltro()">Alternar Preto/Branco</button>
-        <br>
-        <img src="putz.png" class="branco">
+        <img src="putz.png" class="">
         <h2><span id="letter">P</span>UTZ</h2>
         <br>
     </div>
@@ -126,23 +125,39 @@
     <br>
     <h1>Em desenvolvimento...</h1>
     <script>
-        function executarCSS(cor) {
-            var elemento = document.querySelector(".img img");
-            elemento.className = cor;
+    function executarCSS(cor) {
+        var elemento = document.querySelector(".img img");
+        elemento.classList.remove("vermelho", "laranja", "azul", "verde", "roxo");
+        elemento.classList.add(cor);
 
-            var letterSpan = document.getElementById("letter");
-            letterSpan.className = '';
-            letterSpan.classList.add(cor);
+        var letterSpan = document.getElementById("letter");
+        letterSpan.className = '';
+        letterSpan.classList.add(cor);
+
+        var elementoPreview = document.querySelector("#imagem-preview img");
+        elementoPreview.style.filter = "drop-shadow(0 0 1rem " + getCorHexadecimal(cor) + ")";
+
+        if (cor === "branco") {
+            elementoPreview.style.filter = "grayscale(100%) drop-shadow(0 0 1rem white)"; // Aplica o filtro de preto e branco e o sombreamento
         }
+    }
 
-        function alternarFiltro() {
-            var imagemPreview = document.getElementById("imagem-preview");
-            var imagem = imagemPreview.querySelector("img");
-            
-            if (imagem.classList.contains("filtro-preto-branco")) {
-                imagem.classList.remove("filtro-preto-branco");
-            } else {
-                imagem.classList.add("filtro-preto-branco");
+    function getCorHexadecimal(cor) {
+            switch (cor) {
+                case 'branco':
+                    return '#FFFFFF';
+                case 'vermelho':
+                    return '#FF0000';
+                case 'laranja':
+                    return '#FFA500';
+                case 'azul':
+                    return '#0000FF';
+                case 'verde':
+                    return '#008000';
+                case 'roxo':
+                    return '#800080';
+                default:
+                    return '#000000'; // Cor preta como padrão
             }
         }
 
@@ -165,4 +180,3 @@
     </script>
 </body>
 </html>
-
