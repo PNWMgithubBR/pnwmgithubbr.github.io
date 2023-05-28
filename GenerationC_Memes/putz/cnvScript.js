@@ -119,7 +119,7 @@ fotoInput.addEventListener("change", function (event) {
       // Limpa a configuração de cor
       ctx.fillStyle = "white";
 
-      const desiredWidth = 200;
+      const desiredWidth = 300;
       const aspectRatio = img.width / img.height;
       const desiredHeight = desiredWidth / aspectRatio;
       const posX = 400;
@@ -190,7 +190,7 @@ function desenhaImagem() {
     reader.onload = function (event) {
       const img = new Image();
       img.onload = function () {
-        const desiredWidth = 200;
+        const desiredWidth = 300;
         const aspectRatio = img.width / img.height;
         const desiredHeight = desiredWidth / aspectRatio;
         ctx.drawImage(img, posX, posY, desiredWidth, desiredHeight);
