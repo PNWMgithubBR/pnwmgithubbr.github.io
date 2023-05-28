@@ -6,9 +6,9 @@
     <style>
         .container {
             position: relative;
-            width: 1500px; /* Defina a largura desejada para o contêiner */
-            height: 450px; /* Defina a altura desejada para o contêiner */
-            top: -1033px;
+            width: 1000px; /* Defina a largura desejada para o contêiner */
+            height: 300px; /* Defina a altura desejada para o contêiner */
+            top: -700px;
         }
 
         #imagem-preview {
@@ -42,9 +42,9 @@
 
         h2 {
             position: relative;
-            top: -520px;
-            left: 40px;
-            font-size: 180px;
+            top: -355px;
+            left: 29px;
+            font-size: 120px;
             color: white;
             text-shadow: rgb(0, 0, 0) 5px 0px 10px;
             z-index: 2; /* Define um índice Z maior para ficar na frente do contêiner */
@@ -97,13 +97,10 @@
         span.purple {
             color: purple;
         }
-
-        .filtro-preto-branco {
-            filter: grayscale(100%);
-        }
     </style>
 </head>
 <body>
+    <h1>Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e + ao mesmo tempo para aumentar o tamanho da página</h1>
     <input type="file" id="imagem-input">
     <div class="img">
         <button onclick="executarCSS('branco')">Branco</button>
@@ -115,7 +112,7 @@
         <br>
         <button onclick="alternarFiltro()">Alternar Preto/Branco</button>
         <br>
-        <img src="putz.png" class="branco" style="width: 50%; height: 50%;">
+        <img src="putz.png" class="branco">
         <h2><span id="letter">P</span>UTZ</h2>
         <br>
     </div>
@@ -164,3 +161,4 @@
     </script>
 </body>
 </html>
+
