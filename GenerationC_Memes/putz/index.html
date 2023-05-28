@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Putz - GenC</title>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <h1>Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e + ao mesmo tempo para aumentar o tamanho da página se você estiver no PC</h1>
-    <input type="file" id="imagem-input" accept="image/*">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>
+      Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e
+      + ao mesmo tempo para aumentar o tamanho da página se você estiver no PC
+    </h1>
+    <input type="file" id="imagem-input" accept="image/*" />
     <div class="img">
-        <button onclick="executarCSS('branco')">Branco</button>
-        <button onclick="executarCSS('vermelho')">Vermelho</button>
-        <button onclick="executarCSS('laranja')">Laranja - Amarelo</button>
-        <button onclick="executarCSS('azul')">Azul</button>
-        <button onclick="executarCSS('verde')">Verde</button>
-        <button onclick="executarCSS('roxo')">Roxo</button>
-        <br>
-        <img src="putz.png" class="">
-        <h2><span id="letter">P</span>UTZ</h2>
-        <br>
-    </div>
-    <div class="container">
+      <button onclick="cores('branco')">Branco</button>
+      <button onclick="cores('vermelho')">Vermelho</button>
+      <button onclick="cores('laranja')">Laranja</button>
+      <button onclick="cores('amarelo')">Amarelo</button>
+      <button onclick="cores('azulClaro')">Azul Claro</button>
+      <button onclick="cores('azulEscuro')">Azul Escuro</button>
+      <button onclick="cores('verde')">Verde</button>
+      <button onclick="cores('roxo')">Roxo</button>
+      <button onclick="cores('rosa')">rosa</button>
+      <button id="download-button" onclick="baixarImagem()">
+        Baixar Imagem
+      </button>
+      <br />
+      <!-- <img src="putz.png" class=""> -->
+      <!-- <h2><span id="letter">P</span>UTZ</h2> -->
+      <canvas id="canvas" width="640" height="350"></canvas>
+      <div class="container">
         <div id="imagem-preview"></div>
+      </div>
+      <br />
     </div>
-    <br>
+    <br />
     <h1>Em desenvolvimento...</h1>
-    <script src="./script.js"></script>
-</body>
+    <!-- <script src="./script.js"></script> -->
+    <script src="./cnvScript.js"></script>
+    <script src="./baixarImagem.js"></script>
+  </body>
 </html>
