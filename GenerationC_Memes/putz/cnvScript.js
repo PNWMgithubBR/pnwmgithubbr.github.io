@@ -114,7 +114,7 @@ background.onload = () => {
   desenhaImagem();
 };
 
-fotoInput.addEventListener("change", function (event) {
+fotoInput.addEventListener("change", function () {
   desenhaImagem();
 });
 
