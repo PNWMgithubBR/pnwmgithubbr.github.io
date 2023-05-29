@@ -7,12 +7,14 @@ const WIDTH = cnv.width;
 const HEIGHT = cnv.height;
 
 const background = new Image();
-background.src = "";
+background.src = "./putzImg/branco.png";
 
-let corAtual = "";
+let corAtual = "#FFFFFF";
 
 // let posX = 400;
 // let posY = HEIGHT / 5;
+
+desenhaImagem();
 
 function cores(cor) {
   // a imagem vai carregar dnv por causa do background.onload
