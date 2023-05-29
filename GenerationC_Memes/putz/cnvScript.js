@@ -106,13 +106,6 @@ fotoInput.addEventListener("change", function (event) {
       ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
       ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
 
-      // Muda a cor da primeira letra para vermelho
-      ctx.fillStyle = corAtual;
-      ctx.fillText("P", 50, HEIGHT / 2);
-
-      // Limpa a configuração de cor
-      ctx.fillStyle = "white";
-
       const desiredWidth = 300;
       const aspectRatio = img.width / img.height;
       const desiredHeight = desiredWidth / aspectRatio;
@@ -125,6 +118,13 @@ fotoInput.addEventListener("change", function (event) {
       ctx.textBaseline = "middle";
       ctx.fillStyle = "white";
       ctx.fillText("PUTZ", 50, HEIGHT / 2);
+
+      // Muda a cor da primeira letra para vermelho
+      ctx.fillStyle = corAtual;
+      ctx.fillText("P", 50, HEIGHT / 2);
+
+      // Limpa a configuração de cor
+      ctx.fillStyle = "white";
 
       // Limpa as configurações de sombra
       ctx.shadowColor = "transparent";
@@ -171,13 +171,6 @@ function desenhaImagem() {
   ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
   ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
 
-  // Muda a cor da primeira letra para vermelho
-  ctx.fillStyle = corAtual;
-  ctx.fillText("P", 50, HEIGHT / 2);
-
-  // Limpa a configuração de cor
-  ctx.fillStyle = "white";
-
   const file = fotoInput.files[0];
   if (file) {
     const reader = new FileReader();
@@ -194,6 +187,13 @@ function desenhaImagem() {
         ctx.textBaseline = "middle";
         ctx.fillStyle = "white";
         ctx.fillText("PUTZ", 50, HEIGHT / 2);
+
+        // Muda a cor da primeira letra para vermelho
+        ctx.fillStyle = corAtual;
+        ctx.fillText("P", 50, HEIGHT / 2);
+
+        // Limpa a configuração de cor
+        ctx.fillStyle = "white";
       };
       img.src = event.target.result;
     };
