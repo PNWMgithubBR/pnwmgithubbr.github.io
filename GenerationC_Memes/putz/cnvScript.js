@@ -7,12 +7,14 @@ const WIDTH = cnv.width;
 const HEIGHT = cnv.height;
 
 const background = new Image();
-background.src = "";
+background.src = "./putzImg/branco.png";
 
-let corAtual = "";
+let corAtual = "#FFFFFF";
 
 // let posX = 400;
 // let posY = HEIGHT / 5;
+
+desenhaImagem();
 
 function cores(cor) {
   // a imagem vai carregar dnv por causa do background.onload
@@ -69,7 +71,7 @@ function cores(cor) {
   }
 }
 
-background.onload = () => {
+function desenhaImagem() {
   ctx.drawImage(background, 0, 0, WIDTH, HEIGHT);
 
   // Adiciona sombra
@@ -78,63 +80,42 @@ background.onload = () => {
   ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
   ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
 
-  ctx.font = "100px myFirstFont";
-  ctx.textAlign = "left";
-  ctx.textBaseline = "middle";
-  ctx.fillStyle = "white";
-  ctx.fillText("PUTZ", 50, HEIGHT / 2);
+  const file = fotoInput.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const img = new Image();
+      img.onload = function () {
+        const desiredWidth = 300;
+        const aspectRatio = img.width / img.height;
+        const desiredHeight = desiredWidth / aspectRatio;
+        ctx.drawImage(img, posX, posY, desiredWidth, desiredHeight);
 
-  // Muda a cor da primeira letra para vermelho
-  ctx.fillStyle = corAtual;
-  ctx.fillText("P", 50, HEIGHT / 2);
+        ctx.font = "100px myFirstFont";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "white";
+        ctx.fillText("PUTZ", 50, HEIGHT / 2);
 
-  // Limpa a configuração de cor
-  ctx.fillStyle = "white";
+        // Muda a cor da primeira letra para vermelho
+        ctx.fillStyle = corAtual;
+        ctx.fillText("P", 50, HEIGHT / 2);
+
+        // Limpa a configuração de cor
+        ctx.fillStyle = "white";
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+background.onload = () => {
+  desenhaImagem();
 };
 
-fotoInput.addEventListener("change", function (event) {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-  reader.onload = function (event) {
-    const img = new Image();
-    img.onload = function () {
-      ctx.drawImage(background, 0, 0, WIDTH, HEIGHT);
-
-      // Adiciona sombra
-      ctx.shadowColor = corAtual; // Cor da sombra
-      ctx.shadowBlur = 7; // Desfoque da sombra
-      ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
-      ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
-
-      // Muda a cor da primeira letra para vermelho
-      ctx.fillStyle = corAtual;
-      ctx.fillText("P", 50, HEIGHT / 2);
-
-      // Limpa a configuração de cor
-      ctx.fillStyle = "white";
-
-      const desiredWidth = 300;
-      const aspectRatio = img.width / img.height;
-      const desiredHeight = desiredWidth / aspectRatio;
-      const posX = 400;
-      const posY = HEIGHT / 5;
-      ctx.drawImage(img, posX, posY, desiredWidth, desiredHeight);
-
-      ctx.font = "100px myFirstFont";
-      ctx.textAlign = "left";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "white";
-      ctx.fillText("PUTZ", 50, HEIGHT / 2);
-
-      // Limpa as configurações de sombra
-      ctx.shadowColor = "transparent";
-      ctx.shadowBlur = 0;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 0;
-    };
-    img.src = event.target.result;
-  };
-  reader.readAsDataURL(file);
+fotoInput.addEventListener("change", function () {
+  desenhaImagem();
 });
 
 const direita = document.getElementById("direita");
@@ -161,42 +142,3 @@ baixo.addEventListener("click", () => {
   posY += 10;
   desenhaImagem();
 });
-
-function desenhaImagem() {
-  ctx.drawImage(background, 0, 0, WIDTH, HEIGHT);
-
-  // Adiciona sombra
-  ctx.shadowColor = corAtual; // Cor da sombra
-  ctx.shadowBlur = 7; // Desfoque da sombra
-  ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
-  ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
-
-  // Muda a cor da primeira letra para vermelho
-  ctx.fillStyle = corAtual;
-  ctx.fillText("P", 50, HEIGHT / 2);
-
-  // Limpa a configuração de cor
-  ctx.fillStyle = "white";
-
-  const file = fotoInput.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (event) {
-      const img = new Image();
-      img.onload = function () {
-        const desiredWidth = 300;
-        const aspectRatio = img.width / img.height;
-        const desiredHeight = desiredWidth / aspectRatio;
-        ctx.drawImage(img, posX, posY, desiredWidth, desiredHeight);
-
-        ctx.font = "100px myFirstFont";
-        ctx.textAlign = "left";
-        ctx.textBaseline = "middle";
-        ctx.fillStyle = "white";
-        ctx.fillText("PUTZ", 50, HEIGHT / 2);
-      };
-      img.src = event.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-}
