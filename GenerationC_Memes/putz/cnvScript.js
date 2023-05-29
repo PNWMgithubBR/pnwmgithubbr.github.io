@@ -106,12 +106,6 @@ fotoInput.addEventListener("change", function (event) {
       ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
       ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
 
-      ctx.font = "100px myFirstFont";
-      ctx.textAlign = "left";
-      ctx.textBaseline = "middle";
-      ctx.fillStyle = "white";
-      ctx.fillText("PUTZ", 50, HEIGHT / 2);
-
       // Muda a cor da primeira letra para vermelho
       ctx.fillStyle = corAtual;
       ctx.fillText("P", 50, HEIGHT / 2);
@@ -125,6 +119,12 @@ fotoInput.addEventListener("change", function (event) {
       const posX = 400;
       const posY = HEIGHT / 5;
       ctx.drawImage(img, posX, posY, desiredWidth, desiredHeight);
+
+      ctx.font = "100px myFirstFont";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "white";
+      ctx.fillText("PUTZ", 50, HEIGHT / 2);
 
       // Limpa as configurações de sombra
       ctx.shadowColor = "transparent";
@@ -171,12 +171,6 @@ function desenhaImagem() {
   ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
   ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
 
-  ctx.font = "100px myFirstFont";
-  ctx.textAlign = "left";
-  ctx.textBaseline = "middle";
-  ctx.fillStyle = "white";
-  ctx.fillText("PUTZ", 50, HEIGHT / 2);
-
   // Muda a cor da primeira letra para vermelho
   ctx.fillStyle = corAtual;
   ctx.fillText("P", 50, HEIGHT / 2);
@@ -194,6 +188,12 @@ function desenhaImagem() {
         const aspectRatio = img.width / img.height;
         const desiredHeight = desiredWidth / aspectRatio;
         ctx.drawImage(img, posX, posY, desiredWidth, desiredHeight);
+
+        ctx.font = "100px myFirstFont";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "white";
+        ctx.fillText("PUTZ", 50, HEIGHT / 2);
       };
       img.src = event.target.result;
     };
