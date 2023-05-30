@@ -2,48 +2,33 @@
 <html>
   <head>
     <title>Putz - GenC</title>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
   </head>
   <body>
-    <br>
-    <h1>
-      Se estiver menor o tamanho da página, faça a consideração de clicar Ctrl e
-      + ao mesmo tempo para aumentar o tamanho da página se você estiver no PC, e se a posição da imagem estiver torta, usem a movimentação das setas.
-    </h1>
-    <input type="file" id="imagem-input" accept="image/*" />
-    <div class="img">
-      <button onclick="cores('branco')">Branco</button>
-      <button onclick="cores('vermelho')">Vermelho</button>
-      <button onclick="cores('laranja')">Laranja</button>
-      <button onclick="cores('amarelo')">Amarelo</button>
-      <button onclick="cores('azulClaro')">Azul Claro</button>
-      <button onclick="cores('azulEscuro')">Azul Escuro</button>
-      <button onclick="cores('verde')">Verde</button>
-      <button onclick="cores('roxo')">Roxo</button>
-      <button onclick="cores('rosa')">rosa</button>
-      <button id="esquerda">&#9664;</button>
-      <button id="direita">&#9654;</button>
-      <button id="cima">&#9650;</button>
-      <button id="baixo">&#9660;</button>
-      <button id="download-button" onclick="baixarImagem()">
-        Baixar Imagem
-      </button>
-      <br />
-      <!-- <img src="putz.png" class=""> -->
-      <!-- <h2><span id="letter">P</span>UTZ</h2> -->
-      <canvas id="canvas" width="640" height="350"></canvas>
-      <div class="container">
-        <div id="imagem-preview"></div>
+    <div class="content">
+      <label class="title">Gerador de Thumb Putz</label>
+      <div class="gerador">
+        <canvas id="thumb" width="1920" height="1080"></canvas>
       </div>
-      <br />
+      <div class="editor">
+        <div class="editor-item">
+          <label class="editor-title" for="titulo">Título</label>
+          <input class="input" type="text" id="titulo" value="PUTZ"/>
+        </div>
+        <div class="editor-item">
+          <label class="editor-title" for="imagem">Imagem</label>
+          <input class="input" type="file" id="imagem" />
+        </div>
+        <div class="editor-item">
+          <label class="editor-title" for="cor">Cor</label>
+          <input type="range" id="cor" value="0" min="0" max="360" />
+        </div>
+        <div class="editor-row"></div>
+      </div>
+      <div class="baixar">
+        <button id="baixar">Baixar</button>
+      </div>
     </div>
-    <br />
-    <a href="https://pnwmgithubbr.github.io/GenerationC_Memes/putz/indexmobile.html">Versão antiga</a>
-    <h1>Em desenvolvimento...</h1>
-    <!-- <script src="./script.js"></script> -->
-    <script src="./cnvScript.js"></script>
-    <script src="./baixarImagem.js"></script>
   </body>
-
 </html>

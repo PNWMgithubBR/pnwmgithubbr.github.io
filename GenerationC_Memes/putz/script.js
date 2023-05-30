@@ -1,52 +1,75 @@
-function executarCSS(cor) {
-    let elemento = document.querySelector(".img img");
-    elemento.classList.remove("vermelho", "laranja", "azul", "verde", "roxo");
-    elemento.classList.add(cor);
+let canvas;
+let ctx;
+const img = new Image();
 
-    let letterSpan = document.getElementById("letter");
-    letterSpan.className = '';
-    letterSpan.classList.add(cor);
+document.addEventListener("DOMContentLoaded", () => {
+    //inicialiar os listeners apenas depois que a página carregar
+    img.src = "putzImg/vermelho.png";
+    img.onload = function(){
+        setupListeners();
+        setupCanvas();
+    }
+});
 
-    let elementoPreview = document.querySelector("#imagem-preview img");
-    elementoPreview.style.filter = "drop-shadow(0 0 1rem " + getCorHexadecimal(cor) + ")";
+function setupListeners() {
+    //listeners do canvas
 
-    if (cor === "branco") {
-        elementoPreview.style.filter = "grayscale(100%) drop-shadow(0 0 1rem white)"; // Aplica o filtro de preto e branco e o sombreamento
+    //listeners dos parametros para ediçao
+    document.getElementById("titulo").addEventListener("input", setupCanvas);
+    document.getElementById("cor").addEventListener("input", setColor);
+
+    //listeners do download
+    document.getElementById("baixar").addEventListener("click", downloadCanvas);
+}
+
+function setupCanvas(){
+    //inicializar o canvas
+    canvas = document.getElementById("thumb");
+    ctx = canvas.getContext("2d");
+    //clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //inicializar a imagem
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    //inicializar o texto
+    ctx.shadowColor = "red"; // Cor da sombra
+    ctx.shadowBlur = 7; // Desfoque da sombra
+    ctx.shadowOffsetX = 0; // Deslocamento horizontal da sombra
+    ctx.shadowOffsetY = 0; // Deslocamento vertical da sombra
+    ctx.font = "180px COCOGOOSE";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "left";
+    const titulo = document.getElementById("titulo").value;
+    texter(titulo, 100, canvas.height/2);
+    setColor();
+}
+
+function texter(str, x, y){
+    for(var i = 0; i <= str.length; ++i){
+        var ch = str.charAt(i);
+        if(i==0){
+            ctx.fillStyle = "red";
+        } else{
+            ctx.fillStyle = "white";
+        }
+        ctx.fillText(ch, x, y);
+        x += ctx.measureText(ch).width;
     }
 }
 
-function getCorHexadecimal(cor) {
-        switch (cor) {
-            case 'branco':
-                return '#FFFFFF';
-            case 'vermelho':
-                return '#FF0000';
-            case 'laranja':
-                return '#FFA500';
-            case 'azul':
-                return '#0000FF';
-            case 'verde':
-                return '#008000';
-            case 'roxo':
-                return '#800080';
-            default:
-                return '#000000'; // Cor preta como padrão
-        }
-    }
+function setColor(){
+    //set hue rotation to #cor
+    const hue = document.getElementById("cor").value;
+    canvas.style.filter = "hue-rotate("+hue+"deg)";
+}
 
-    const input = document.getElementById('imagem-input');
-    const preview = document.getElementById('imagem-preview');
-
-    input.addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            preview.innerHTML = '';
-            preview.appendChild(img);
-        };
-
-        reader.readAsDataURL(file);
-    });
+function downloadCanvas(){
+    const canvas = document.getElementById("thumb");
+    //get certificado image data
+    const data = canvas.toDataURL("image/png");
+    //create download link
+    let link = document.createElement("a");
+    link.download = "thumbnail.png";
+    link.href = data;
+    //click download link
+    link.click();
+}
