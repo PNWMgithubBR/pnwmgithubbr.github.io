@@ -86,7 +86,7 @@ function desenhaImagem() {
     reader.onload = function (event) {
       const img = new Image();
       img.onload = function () {
-        const desiredWidth = 300;
+        const desiredWidth = 300 * scale;
         const aspectRatio = img.width / img.height;
         const desiredHeight = desiredWidth / aspectRatio;
         ctx.drawImage(img, posX, posY, desiredWidth, desiredHeight);
@@ -123,8 +123,12 @@ const esquerda = document.getElementById("esquerda");
 const cima = document.getElementById("cima");
 const baixo = document.getElementById("baixo");
 
+const aumentar = document.getElementById("aumentar");
+const diminuir = document.getElementById("diminuir");
+
 let posX = 400;
 let posY = HEIGHT / 5;
+let scale = 1;
 
 direita.addEventListener("click", () => {
   posX += 10;
@@ -141,4 +145,54 @@ cima.addEventListener("click", () => {
 baixo.addEventListener("click", () => {
   posY += 10;
   desenhaImagem();
+});
+
+aumentar.addEventListener("click", () => {
+  scale += 0.1;
+  desenhaImagem();
+});
+
+diminuir.addEventListener("click", () => {
+  scale -= 0.1;
+  desenhaImagem();
+});
+
+
+// key listener
+document.addEventListener("keydown", (event) => {
+  switch (event.key) {
+    case "ArrowRight":
+      event.preventDefault();
+      posX += 10;
+      desenhaImagem();
+      break;
+    case "ArrowLeft":
+      event.preventDefault();
+      posX -= 10;
+      desenhaImagem();
+      break;
+    case "ArrowUp":
+      event.preventDefault();
+      posY -= 10;
+      desenhaImagem();
+      break;
+    case "ArrowDown":
+      event.preventDefault();
+      posY += 10;
+      desenhaImagem();
+      break;
+    case "+":
+      event.preventDefault();
+      scale += 0.1;
+      desenhaImagem();
+      break;
+    case "-":
+      event.preventDefault();
+      scale -= 0.1;
+      desenhaImagem();
+      break;
+    default:
+      // Caso a tecla não seja uma das direcionais ou "+" ou "-", não faz nada
+      break;
+  }
 });
