@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  background-color: #222;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./putz.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(5px);
+}
+
+.edit-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  background-color: #444;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.hud {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.the-canvas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/*
+  2 buttons per row
+*/
+
+.buttons-left {
+  width: 320px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: space-between;
+  gap: 10px;
+  height: 330px;
+  padding: 10px;
+}
+
+.buttons-left > button {
+  width: calc(50% - 10px);
+  padding: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: solid 1px white;
+  color: white;
+  padding-block: 10px;
+  border-radius: 5px;
+  flex-grow: 1;
+}
+
+.buttons-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  height: 330px;
+  padding: 10px;
+}
+
+ .buttons-right > button {
+  margin: 5px;
+  padding: 5px;
+  width: 100px;
+  cursor: pointer;
+  background-color: transparent;
+  border: solid 1px white;
+  color: white;
+  padding-block: 10px;
+  border-radius: 5px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.centered {
+  justify-content: center !important;
+}
+
+.joypad-row {
+  width: 180px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.joypad-row > button {
+  margin: 5px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: transparent;
+  border: solid 1px white;
+  color: white;
+  padding-block: 10px;
+  border-radius: 5px;
+}
+
+.alert-info {
+  background-color: #2196F3;
+  color: white;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.fw-button {
+  width: 100% !important;
+  margin-block: 10px !important;
+}

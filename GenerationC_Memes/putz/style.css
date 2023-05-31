@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: COCOGOOSE;
 }
+input{
+    font-family: Calibri;
+}
 input[type=range] {
     outline: 0;
     -webkit-appearance: none;
@@ -58,11 +61,12 @@ body{
 }
 .gerador{
     width: 100%;
-    box-shadow: 2px 2px 10px #000;
     margin:20px;
+    max-width: 800px;
 }
 .gerador canvas{
     width: 100%;
+    box-shadow: 2px 2px 10px #000;
 }
 .editor{
     width: 100%;
@@ -80,6 +84,52 @@ body{
     justify-content: center;
     margin: 5px;
 }
+.editor-row{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+}
+.editor-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+.editor-camada-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+.editor-btn{
+    background-color: #008539;
+    box-shadow: 0px 4px 0px #023819;
+    color: #ebebeb;
+    margin:5px;
+    padding:5px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.editor-btn-select{
+    background-color: #eba000;
+    box-shadow: 0px 4px 0px #804000;
+    color: #ebebeb;
+    margin:5px;
+    padding:5px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.editor-btn-remove{
+    background-color: #dd4040;
+    box-shadow: 0px 4px 0px #800000;
+    color: #ebebeb;
+    margin:5px;
+    padding:5px;
+    border-radius: 7px;
+    cursor: pointer;
+}
 .editor-title{
     font-size: 1.5rem;
     margin: 3px;
@@ -93,6 +143,35 @@ body{
     background-color: #2d2d2d;
     color: #ebebeb;
     font-size: 1rem;
+}
+.editor-camadas{
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.editor-camada{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    background-color: #4a4a4a;
+    padding: 5px;
+    gap: 5px;
+    border-radius: 3px;
+}
+.editor-camada.selected{
+    background-color: #4f6e4f;
+}
+.editor-camada-text{
+    
+}
+.editor-camada-img{
+    width:100px;
 }
 .baixar{
     width: 100%;
