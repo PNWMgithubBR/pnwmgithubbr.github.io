@@ -7,12 +7,15 @@
 </a>
 
 
-- 🐦 **Meu twitter da TADL!**
+- 🐦 **Meu twitter!**
 > <img src="imagens_especiais/twitter.gif" style="width:88px;height:31px;">
-<a href="https://twitter.com/tadldzn">
+<a href="https://twitter.com/pnwmofc
  </a>
 
 ---
 
 ## Projetos:
-<!--- Preencher isso depois ---!> 
+- Bora Tomar Uma Saga
+- Trabial Studios Games & Apps
+- GenerationC
+- 
