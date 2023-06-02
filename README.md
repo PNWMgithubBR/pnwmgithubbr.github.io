@@ -18,4 +18,3 @@
 - Bora Tomar Uma Saga
 - Trabial Studios Games & Apps
 - GenerationC
-- 
