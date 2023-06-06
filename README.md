@@ -9,7 +9,7 @@
 
 - 🐦 **Meu twitter!**
 > <img src="imagens_especiais/twitter.gif" style="width:88px;height:31px;">
-<a href="https://twitter.com/pnwmofc
+<a href="https://twitter.com/pnwmofc">
  </a>
 
 ---
