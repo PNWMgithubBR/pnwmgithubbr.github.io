@@ -16,5 +16,5 @@
 
 ## Projetos:
 - Bora Tomar Uma Saga
-- Trabial Studios Games & Apps
+- Trabial Studios Games & Apps (lixo)
 - GenerationC
