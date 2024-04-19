@@ -15,6 +15,4 @@
 ---
 
 ## Projetos:
-- Bora Tomar Uma Saga
-- Trabial Studios Games & Apps (lixo)
-- GenerationC
+- Mais info: https://deryum.carrd.co/
