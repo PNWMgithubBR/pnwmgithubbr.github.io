@@ -1,0 +1,71 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+.inicio {
+    padding-top: 50px;
+    background-image: url(img/capa.jpg);
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.inicioDiv1 {
+    background-color: black;
+    color: white;
+    width: 400px;
+    height: 90px;
+    text-align: center;
+    margin: auto;
+    font-family: tahoma;
+    padding-top: 5px;
+}
+.inicioDiv2 {
+    background-color: red;
+    color: white;
+    width: 400px;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+    font-family: tahoma;
+    padding-top: 5px;
+    font-size: 13px;
+    padding-bottom: 25px;
+}
+.atores {
+    background-color: white;
+    width: 100%;
+    height: 750px;
+    padding-top: 70px;
+    padding-left: 300px;
+    font-family: tahoma;
+}
+.imagem2 {
+    background-image: url(img/img1.jpg);
+    height: 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.sinopse {
+    background-color: white;
+    height: 450px;
+    padding-top: 50px;
+    padding-left: 300px;
+    padding-right: 300px;
+    text-align: justify;
+    font-family: tahoma;
+}
+.quadrado {
+    background-color: red;
+    color: white;
+    height: 70px;
+    width: 300px;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 10px;
+}
