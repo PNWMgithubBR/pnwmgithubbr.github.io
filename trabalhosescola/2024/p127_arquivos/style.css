@@ -1,0 +1,35 @@
+html, body {
+    text-align: center;
+    margin: 0;
+}
+
+.azul {
+    background-color: rgb(0, 174, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.textoCor1 {
+    color: white;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.texto1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.texto2T {
+    font-style: italic;
+    font-size: 40px;
+}
+
+.texto2 {
+    font-style: italic;
+}
+
+.poema {
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}

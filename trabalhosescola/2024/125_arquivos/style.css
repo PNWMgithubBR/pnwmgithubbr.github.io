@@ -1,0 +1,45 @@
+html, body {
+    text-align: center;
+    margin: 0;
+}
+
+.roxo {
+    background-color: rgb(111, 0, 255);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.textoLogo {
+    color: white;
+    font-size: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 10px;
+}
+
+.textoBemVindo {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.principal {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.roxo2 {
+    background-color: rgb(162, 91, 255);
+    color: rgb(0, 0, 0);
+}
+
+.textoC {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
