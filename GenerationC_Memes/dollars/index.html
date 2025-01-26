@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tólares</title>
+  <style>
+    #imagem-container img {
+      width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<video id="video" width="100%" autoplay muted>
+  <source src="imagens/0000-0050.mp4" type="video/mp4">
+  Seu navegador não suporta o elemento de vídeo.
+</video>
+
+<div id="imagem-container" style="display: none;"></div>
+
+<p id="resultado">Carregando cotação...</p>
+
+<script>
+let valorEmDolar = 1;
+let cotacaoObtida = false;
+let intervaloImagens;
+const resultElement = document.getElementById("resultado");
+
+// Buscar a cotação do dólar com timeout para evitar travamentos
+function obterCotacao() {
+  fetch("https://api.exchangerate-api.com/v4/latest/USD")
+    .then((response) => response.json())
+    .then((data) => {
+      var cotacaoDoDolar = data.rates.BRL;
+      var valorEmReal = valorEmDolar * cotacaoDoDolar;
+      valorEmReal = valorEmReal.toFixed(2);
+
+      resultElement.innerHTML = 
+        "O valor de U$ " + valorEmDolar + " dólar americano é igual a R$ " + valorEmReal;
+
+      cotacaoObtida = true;  // Marca que a cotação foi obtida
+
+      // Calcular o número do frame com base no valor da cotação
+      const valorCotacao = parseFloat(cotacaoDoDolar.toFixed(2));
+      const frameNumero = Math.floor(valorCotacao * 100);  // Converte para um número inteiro representando o frame
+      console.log("Frame correspondente:", frameNumero);
+
+      // Iniciar a animação de imagens
+      iniciarAnimacaoImagens(frameNumero);
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar cotação:", error);
+      resultElement.innerHTML = "Erro ao obter cotação.";
+      setTimeout(obterCotacao, 5000);  // Tentar novamente após 5 segundos
+    });
+}
+
+// Chama a função para obter a cotação
+obterCotacao();
+
+function iniciarAnimacaoImagens(frameDestino) {
+  // Substituir vídeo por imagens quando ele terminar
+  const video = document.getElementById("video");
+  const imagemContainer = document.getElementById("imagem-container");
+
+  let frameAtual = 50;  // Começa do frame 0050.png
+  const totalFrames = 1000; // A sequência vai até o frame 1000
+  const frameRate = 10; // Tempo entre frames em milissegundos
+
+  video.addEventListener("ended", () => {
+    video.style.display = "none";
+    imagemContainer.style.display = "block";
+    carregarImagensSequenciais(frameDestino);
+  });
+
+  function carregarImagensSequenciais(frameDestino) {
+    intervaloImagens = setInterval(() => {
+      if (frameAtual <= totalFrames && frameAtual <= frameDestino) {
+        const numeroFormatado = String(frameAtual).padStart(4, '0'); // Ex: 0050, 0051...
+        const novaImagem = new Image();
+        novaImagem.src = `imagens/${numeroFormatado}.png`;  // Carregar da pasta 'imagens/'
+        novaImagem.alt = `Frame ${numeroFormatado}`;
+        
+        novaImagem.onload = () => {
+          imagemContainer.innerHTML = "";  // Remove a imagem anterior
+          imagemContainer.appendChild(novaImagem);
+          frameAtual++;
+        };
+
+        novaImagem.onerror = () => {
+          console.error(`Erro ao carregar imagem: imagens/${numeroFormatado}.png`);
+          frameAtual++; // Tentar o próximo frame se falhar
+        };
+      } else {
+        console.log("Parando no frame:", frameAtual);
+        clearInterval(intervaloImagens); // Para a sequência de imagens quando o frame desejado for alcançado
+      }
+    }, frameRate);  // Atualiza a imagem a cada `frameRate` milissegundos
+  }
+}
+
+// código criado pelo https://gist.github.com/isaiassl/730129b38307c143409dd0621dd86db4
+</script>
+
+</body>
+</html>
